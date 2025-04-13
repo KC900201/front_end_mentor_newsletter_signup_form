@@ -1,6 +1,6 @@
-import { classNames } from 'utils'
+import { classNames } from "utils"
 
-type Size = 'small' | 'medium' | 'large'
+type Size = "small" | "medium" | "large"
 
 type AvatarProps = {
   size?: Size
@@ -9,16 +9,16 @@ type AvatarProps = {
 }
 
 const sizes: Record<Size, string> = {
-  small: 'w-10 h-10',
-  medium: 'w-12 h-12',
-  large: 'w-14 h-14'
+  small: "w-10 h-10",
+  medium: "w-12 h-12",
+  large: "w-14 h-14",
 }
 
-const EmptyAvatar = ({ size = 'medium' }: Pick<AvatarProps, 'size'>) => (
+const EmptyAvatar = ({ size = "medium" }: Pick<AvatarProps, "size">) => (
   <span
     data-testid="empty-avatar"
     className={classNames(
-      'inline-block overflow-hidden bg-gray-100 rounded-full',
+      "inline-block overflow-hidden bg-gray-100 rounded-full",
       sizes[size]
     )}
   >
@@ -32,14 +32,14 @@ const EmptyAvatar = ({ size = 'medium' }: Pick<AvatarProps, 'size'>) => (
   </span>
 )
 
-export default function Avatar({ size = 'medium', src, alt }: AvatarProps) {
+export default function Avatar({ size = "medium", src, alt }: AvatarProps) {
   if (!src) {
     return <EmptyAvatar size={size} />
   }
 
   return (
     <img
-      className={classNames('inline-block rounded-full', sizes[size])}
+      className={classNames("inline-block rounded-full", sizes[size])}
       src={src}
       alt={alt}
     />
