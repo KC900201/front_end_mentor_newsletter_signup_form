@@ -2,6 +2,11 @@ dist
 dist-ssr
 *.local
 
+# Design files (please do not remove 🙂)
+*.sketch
+*.fig
+*.xd
+
 # dependencies
 /node_modules
 /.pnp
@@ -16,10 +21,25 @@ dist-ssr
 
 # production
 /build
+/dist
+/.next
+/out
 
 # misc
 .DS_Store
 *.pem
+
+# IDEs and editors
+/.idea
+/.vscode
+*.swp
+*.swo
+
+# Misc
+*.log
+*.pem
+.DS_Store
+Thumbs.db
 
 # debug
 npm-debug.log*
