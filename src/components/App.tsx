@@ -6,7 +6,11 @@
  */
 
 function App() {
-  return <div className="relative overflow-hidden bg-white">Hello World!</div>
+  return (
+    <main className="flex h-screen justify-center">
+      <div className="self-center">Hello World!</div>
+    </main>
+  )
 }
 
 export default App
