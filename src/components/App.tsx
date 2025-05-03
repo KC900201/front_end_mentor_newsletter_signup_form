@@ -9,10 +9,17 @@ import {
 } from "@/components/ui/card"
 
 /* To-do
- * Implement design components
- * Implement form check for email
- * Set up testing
- * Implement form submission handling
+ * [ ] Implement design components
+ *  [ ] Implement form input for email input
+ *  [ ] Amend grid layout for design image
+ *  [ ] Implement the header components
+ * [ ] Implement state and prop types
+ *  [ ] Form checking for email input
+ * [ ] Set up testing
+ * [ ] Set up extra page
+ *  [ ] Submission success page
+ *  [ ] Error page
+ * [ ] Set up mobile view
  */
 
 function App() {
