@@ -8,12 +8,19 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-/* To-do
+import desktopImage from "@/assets/images/illustration-sign-up-desktop.svg"
+import desktopMobileImage from "@/assets/images/illustration-sign-up-mobile.svg"
+
+/*
+ * Reference: https://v3.shadcn.com/docs/components/
+ * Reminder: using shadcn/ui v2.3.0  - npx shadn@2.3.0 add <component>
+ *
+ * To-do
  * [ ] Implement design components
  *  [ ] Implement form input for email input
- *  [ ] Amend grid layout for design image
+ *  [x] Amend grid layout for design image
  *  [ ] Implement the header components
- * [ ] Implement state and prop types
+ *  [ ] Implement state and prop types
  *  [ ] Form checking for email input
  * [ ] Set up testing
  * [ ] Set up extra page
@@ -25,7 +32,7 @@ import {
 function App() {
   return (
     <main className="flex h-screen justify-center">
-      <Card className="grid h-[550px] w-[1440px] self-center overflow-hidden p-2 md:grid-cols-2">
+      <Card className="flex h-fit w-[375px] flex-row items-center justify-between self-center p-3 text-center md:w-[1440px]">
         <div className="relative size-full">
           <CardHeader className="text-5xl font-bold">
             <CardTitle>Stay updated!</CardTitle>
@@ -36,17 +43,22 @@ function App() {
           <CardContent className="self-center text-2xl font-bold">
             This is a content
           </CardContent>
-          <CardFooter>
+          <CardFooter className="flex flex-col items-center justify-center gap-4">
             <Button className="bg-neutral-blue-800 p-8 text-center">
               Subscribe to monthly newsletter
             </Button>
           </CardFooter>
         </div>
-        <div className="relative hidden size-3/6 bg-muted md:block">
+        <div className="flex h-full w-1/2 items-center justify-center">
           <img
-            src="/src/assets/images/illustration-sign-up-desktop.svg"
-            alt="Image"
-            className="absolute inset-0 size-fit object-cover"
+            src={desktopMobileImage}
+            alt="Mobile Newsletter illustration"
+            className="h-auto w-full max-w-full object-contain md:hidden"
+          />
+          <img
+            src={desktopImage}
+            alt="Newsletter illustration"
+            className="hidden h-auto w-full max-w-full object-contain md:block"
           />
         </div>
       </Card>
