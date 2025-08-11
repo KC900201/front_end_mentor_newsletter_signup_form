@@ -1,30 +1,9 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+import { Route, Routes } from "react-router-dom"
 
-import { SignUpForm } from "@/components/organisms"
+import { SignUpForm, SuccessMessage } from "@/components/organisms"
 import { MainLayout } from "@/components/templates"
-import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 
-import desktopImage from "@/assets/images/illustration-sign-up-desktop.svg"
-import desktopMobileImage from "@/assets/images/illustration-sign-up-mobile.svg"
-import listIcon from "@/assets/images/icon-list.svg"
+import pages from "@/utils/pages"
 
 /*
  * Reference: https://v3.shadcn.com/docs/components/
@@ -45,31 +24,16 @@ import listIcon from "@/assets/images/icon-list.svg"
  * [ ] Improve the SEO, meta-tags of website
  */
 
-const productList = [
-  "Product discovery and building what matters",
-  "Measuring to ensure updates are successful",
-  "And much more!",
-]
-
-const formSchema = z.object({
-  email: z.email("Valid email required"),
-})
-
 function App() {
-  // Set up form validation
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-    },
-  })
-
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log("Form submitted with values:", values)
-  }
   return (
     <MainLayout>
-      <SignUpForm />
+      <Routes>
+        <Route path={pages.get("home").path} element={<SignUpForm />} />
+        <Route
+          path={pages.get("success").path}
+          element={<SuccessMessage emailAddress={"test@example.com"} />}
+        />
+      </Routes>
     </MainLayout>
   )
 }
