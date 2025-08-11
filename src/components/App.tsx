@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
+import { MainLayout } from "@/components/templates"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -37,7 +38,7 @@ import listIcon from "@/assets/images/icon-list.svg"
  *  [x] Form checking for email input
  * [ ] Set up testing
  * [ ] Set up extra page
- *  [ ] Submission success page
+ *  [ ] Submission success page **
  *  [x] Error page
  * [ ] Set up mobile view
  * [ ] Improve the SEO, meta-tags of website
@@ -66,13 +67,15 @@ function App() {
     console.log("Form submitted with values:", values)
   }
   return (
-    <main className="flex h-screen justify-center">
+    <MainLayout>
       <Card className="flex h-fit w-[375px] flex-row items-center justify-between self-center rounded-3xl p-4 text-justify md:w-[1440px]">
         <div className="relative size-full pl-5">
           <CardHeader className="text-5xl font-bold">
-            <CardTitle>Stay updated!</CardTitle>
+            <CardTitle className="text-center md:text-left">
+              Stay updated!
+            </CardTitle>
             <CardDescription
-              className="text-xl font-normal"
+              className="text-xl font-normal text-wrap text-justify md:text-left"
               style={{ marginTop: "1rem" }}
             >
               Join 60,000+ product managers receiving monthly updates on:
@@ -114,7 +117,7 @@ function App() {
                         <Input
                           type="email"
                           placeholder="email@company.com"
-                          className={`p-7 text-lg ${
+                          className={`p-5 md:p-7 text-lg ${
                             form.formState.errors.email
                               ? "border-red-500 bg-red-50 text-red-500 placeholder:text-red-300 focus:border-red-500 focus:ring-red-500"
                               : "border-gray-300 focus:border-blue-500 focus:ring-blue-500"
@@ -127,7 +130,7 @@ function App() {
                 />
                 <Button
                   type="submit"
-                  className="mt-6 w-full bg-neutral-blue-800 p-8 text-center text-lg font-bold"
+                  className="mt-6 w-full bg-neutral-blue-800  p-4 md:p-8 text-center text-md md:text-lg font-bold"
                 >
                   Subscribe to monthly newsletter
                 </Button>
@@ -148,7 +151,7 @@ function App() {
           />
         </div>
       </Card>
-    </main>
+    </MainLayout>
   )
 }
 
