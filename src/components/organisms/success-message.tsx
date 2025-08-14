@@ -37,7 +37,10 @@ function SuccessMessage() {
           alt="Success Icon"
           className="mb-8 md:mb-4 w-16 h-16 md:w-12 md:h-12"
         />
-        <CardTitle className="text-[hsl(234,29%,20%)] text-4xl md:text-5xl leading-tight">
+        <CardTitle
+          className="text-[hsl(234,29%,20%)] text-4xl md:text-5xl leading-tight"
+          data-testid="success-title"
+        >
           Thanks for subscribing!
         </CardTitle>
       </CardHeader>
