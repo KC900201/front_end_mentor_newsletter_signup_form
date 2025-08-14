@@ -55,59 +55,66 @@ function SignUpForm() {
   }
 
   return (
-    <Card className="flex h-fit w-[375px] flex-row items-center justify-between self-center rounded-3xl p-4 text-justify md:w-[1440px]">
-      <div className="relative size-full pl-5">
-        <CardHeader className="text-5xl font-bold">
-          <CardTitle className="text-center md:text-left">
+    <Card className="flex h-screen md:h-fit w-full flex-col md:w-[1440px] md:flex-row items-center justify-between self-center border-none shadow-none rounded-none md:border md:shadow-sm md:rounded-3xl p-0 md:p-4 text-justify">
+      {/* Mobile image at top - only visible on mobile */}
+      <div className="w-full md:hidden">
+        <img
+          src={desktopMobileImage}
+          alt="Mobile Newsletter illustration"
+          className="h-auto w-full object-cover rounded-b-2xl"
+        />
+      </div>
+      <div className="relative w-full md:w-1/2 p-6 md:p-8 flex-1 flex flex-col justify-center md:justify-start">
+        <CardHeader className="text-4xl md:text-6xl font-bold p-0 mb-4 md:mb-6">
+          <CardTitle className="text-left text-[hsl(234,29%,20%)] leading-tight">
             Stay updated!
           </CardTitle>
-          <CardDescription
-            className="text-xl font-normal text-wrap text-justify md:text-left"
-            style={{ marginTop: "1rem" }}
-          >
+          <CardDescription className="text-base md:text-lg font-normal text-wrap text-left text-[hsl(234,29%,20%)] mt-3 md:mt-4">
             Join 60,000+ product managers receiving monthly updates on:
           </CardDescription>
         </CardHeader>
-        <CardContent className="self-center text-xl">
-          <ul className="list-none">
+        <CardContent className="text-base md:text-lg p-0 mb-6 md:mb-8">
+          <ul className="list-none space-y-2 md:space-y-3">
             {productList.map((item, index) => (
-              <li
-                key={index}
-                className="mb-2 flex items-center justify-start gap-2"
-              >
+              <li key={index} className="flex items-start gap-3 md:gap-4">
                 <img
                   src={listIcon}
                   alt="List icon"
-                  className="mr-2 inline-block"
+                  className="mt-0.5 flex-shrink-0 w-4 h-4 md:w-5 md:h-5"
                 />
-                {item}
+                <span className="text-[hsl(234,29%,20%)] font-normal">
+                  {item}
+                </span>
               </li>
             ))}
           </ul>
         </CardContent>
         {/* Email address */}
-        <CardContent className="mt-4">
+        <CardContent className="p-0">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-4 md:space-y-6"
+            >
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
                     <div className="flex items-center justify-between">
-                      <FormLabel className="text-lg font-bold">
+                      <FormLabel className="text-xs md:text-sm font-bold text-[hsl(234,29%,20%)]">
                         Email address
                       </FormLabel>
-                      <FormMessage className="text-red-500" />
+                      <FormMessage className="text-[hsl(4,100%,67%)] text-xs md:text-sm" />
                     </div>
                     <FormControl>
                       <Input
                         type="email"
                         placeholder="email@company.com"
-                        className={`p-5 md:p-7 text-lg ${
+                        className={`p-5 md:p-4 text-sm md:text-base border rounded-lg ${
                           form.formState.errors.email
-                            ? "border-red-500 bg-red-50 text-red-500 placeholder:text-red-300 focus:border-red-500 focus:ring-red-500"
-                            : "border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                            ? "border-[hsl(4,100%,67%)] bg-red-50 text-[hsl(4,100%,67%)] placeholder:text-red-300 focus:border-[hsl(4,100%,67%)] focus:ring-[hsl(4,100%,67%)]"
+                            : "border-[hsl(0,0%,58%)] focus:border-[hsl(234,29%,20%)] focus:ring-[hsl(234,29%,20%)]"
                         }`}
                         {...field}
                       />
@@ -117,7 +124,7 @@ function SignUpForm() {
               />
               <Button
                 type="submit"
-                className="mt-6 w-full hover:shadhow-lg hover:bg-gradient-to-r hover:from-[#ff6a3a] hover:to-[#ff527b] transition-all duration-300 bg-neutral-blue-800  p-4 md:p-8 text-center text-md md:text-lg font-bold"
+                className="w-full bg-[hsl(234,29%,20%)] hover:bg-gradient-to-r hover:from-[#ff6155] hover:to-[#ff6155] hover:shadow-[0_16px_32px_rgba(255,97,85,0.5)] transition-all duration-300 p-3 md:p-4 text-center text-sm md:text-base font-bold rounded-lg"
               >
                 Subscribe to monthly newsletter
               </Button>
@@ -125,16 +132,13 @@ function SignUpForm() {
           </Form>
         </CardContent>
       </div>
-      <div className="flex h-full w-1/2 items-center justify-center">
-        <img
-          src={desktopMobileImage}
-          alt="Mobile Newsletter illustration"
-          className="h-auto w-full max-w-full object-contain md:hidden"
-        />
+
+      {/* Desktop image on right - only visible on desktop */}
+      <div className="hidden md:flex h-fit w-fit items-center justify-center">
         <img
           src={desktopImage}
           alt="Newsletter illustration"
-          className="hidden h-auto w-full max-w-full object-contain md:block"
+          className="h-auto w-full max-w-fit object-contain"
         />
       </div>
     </Card>
