@@ -44,7 +44,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub Repository](https://github.com/KC900201/front_end_mentor_newsletter_signup_form)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://fe-mentor-signup-form.netlify.app/)
 
 ## My process
 
