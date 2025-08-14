@@ -18,7 +18,7 @@ import pages from "@/utils/pages"
  *  [x] Form checking for email input
  * [ ] Amend mobile layout design for signup form
  * [ ] Implement component and unit testing
- * [ ] Set up extra page
+ * [x] Set up extra page
  *  [x] Submission success page **
  * [x] Set up mobile view
  * [ ] Improve the SEO, meta-tags of website
