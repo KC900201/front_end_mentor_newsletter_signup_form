@@ -55,7 +55,7 @@ function SignUpForm() {
   }
 
   return (
-    <Card className="flex h-screen md:h-fit w-full flex-col md:w-[1440px] md:flex-row items-center justify-between self-center border-none shadow-none rounded-none md:border md:shadow-sm md:rounded-3xl p-0 md:p-4 text-justify">
+    <Card className="flex h-screen md:h-fit w-full flex-col md:w-[960px] md:flex-row items-center justify-between self-center border-none shadow-none rounded-none md:border md:shadow-sm md:rounded-3xl p-0 md:p-4 text-justify">
       {/* Mobile image at top - only visible on mobile */}
       <div className="w-full md:hidden">
         <img
