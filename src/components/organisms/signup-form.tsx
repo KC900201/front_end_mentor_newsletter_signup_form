@@ -66,8 +66,8 @@ function SignUpForm() {
       </div>
       <div className="relative w-full md:w-1/2 p-6 md:p-8 flex-1 flex flex-col justify-center md:justify-start">
         <CardHeader className="text-4xl md:text-6xl font-bold p-0 mb-4 md:mb-6">
-          <CardTitle className="text-left text-[hsl(234,29%,20%)] leading-tight">
-            Stay updated!
+          <CardTitle className="text-left leading-tight">
+            <h1 className="text-[hsl(234,29%,20%)]">Stay updated!</h1>
           </CardTitle>
           <CardDescription className="text-base md:text-lg font-normal text-wrap text-left text-[hsl(234,29%,20%)] mt-3 md:mt-4">
             Join 60,000+ product managers receiving monthly updates on:
@@ -117,6 +117,23 @@ function SignUpForm() {
                             : "border-[hsl(0,0%,58%)] focus:border-[hsl(234,29%,20%)] focus:ring-[hsl(234,29%,20%)]"
                         }`}
                         {...field}
+                        onChange={(e) => {
+                          field.onChange(e)
+
+                          // Clear error when input is empty
+                          if (
+                            form.formState.errors.email &&
+                            e.target.value === ""
+                          ) {
+                            form.clearErrors("email")
+                          }
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            e.preventDefault()
+                            form.handleSubmit(onSubmit)()
+                          }
+                        }}
                       />
                     </FormControl>
                   </FormItem>

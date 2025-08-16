@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom"
 import { vi, describe, it, expect, beforeEach } from "vitest"
 import SignUpForm from "./signup-form"
 
-// WIP
 // Create mock functions
 const mockNavigate = vi.fn()
 
@@ -113,7 +112,7 @@ describe("SignUpForm", () => {
     })
 
     // Enter invalid email
-    fireEvent.change(emailInput, { target: { value: "invalid-email" } })
+    fireEvent.change(emailInput, { target: { value: "invalid-email@email" } })
     fireEvent.click(submitButton)
 
     await waitFor(() => {
@@ -177,7 +176,7 @@ describe("SignUpForm", () => {
     })
 
     // Enter invalid email and submit
-    fireEvent.change(emailInput, { target: { value: "invalid-email" } })
+    fireEvent.change(emailInput, { target: { value: "invalid-email@email" } })
     fireEvent.click(submitButton)
 
     await waitFor(() => {
@@ -241,19 +240,23 @@ describe("SignUpForm", () => {
       name: /subscribe to monthly newsletter/i,
     })
 
-    // First, trigger an error
-    fireEvent.change(emailInput, { target: { value: "invalid" } })
+    // First, trigger an error by submitting empty form
     fireEvent.click(submitButton)
 
     await waitFor(() => {
       expect(screen.getByText("Valid email required")).toBeInTheDocument()
     })
 
-    // Clear and type valid email
-    fireEvent.change(emailInput, { target: { value: "" } })
+    // Now type a valid email
     fireEvent.change(emailInput, { target: { value: "valid@example.com" } })
 
-    // Error should be gone
+    // Error should still be there since we haven't submitted yet
+    expect(screen.getByText("Valid email required")).toBeInTheDocument()
+
+    // Clear the input completely - error should disappear
+    fireEvent.change(emailInput, { target: { value: "" } })
+
+    // Error should be gone when input is empty
     await waitFor(() => {
       expect(screen.queryByText("Valid email required")).not.toBeInTheDocument()
     })

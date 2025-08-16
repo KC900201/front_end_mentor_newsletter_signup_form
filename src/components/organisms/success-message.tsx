@@ -38,10 +38,10 @@ function SuccessMessage() {
           className="mb-8 md:mb-4 w-16 h-16 md:w-12 md:h-12"
         />
         <CardTitle
-          className="text-[hsl(234,29%,20%)] text-4xl md:text-5xl leading-tight"
+          className="text-4xl md:text-5xl leading-tight"
           data-testid="success-title"
         >
-          Thanks for subscribing!
+          <h1 className="text-[hsl(234,29%,20%)]">Thanks for subscribing!</h1>
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col justify-between md:justify-start">

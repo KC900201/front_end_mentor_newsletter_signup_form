@@ -17,7 +17,7 @@ import pages from "@/utils/pages"
  *  [x] Implement state and prop types
  *  [x] Form checking for email input
  * [x] Amend mobile layout design for signup form
- * [ ] Implement component and unit testing
+ * [x] Implement component and unit testing
  * [x] Set up extra page
  *  [x] Submission success page **
  * [x] Set up mobile view
