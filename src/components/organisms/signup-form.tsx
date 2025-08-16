@@ -111,6 +111,8 @@ function SignUpForm() {
                       <Input
                         type="email"
                         placeholder="email@company.com"
+                        id="email-input"
+                        data-testid="email-input"
                         className={`p-5 md:p-4 text-sm md:text-base border rounded-lg ${
                           form.formState.errors.email
                             ? "border-[hsl(4,100%,67%)] bg-red-50 text-[hsl(4,100%,67%)] placeholder:text-red-300 focus:border-[hsl(4,100%,67%)] focus:ring-[hsl(4,100%,67%)]"
